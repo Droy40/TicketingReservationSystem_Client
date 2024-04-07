@@ -4,6 +4,7 @@
  */
 package ticketingreservationsystem_client;
 
+
 /**
  *
  * @author Lenovo
@@ -12,17 +13,11 @@ public class JPanelSchedule extends javax.swing.JPanel {
 
     /**
      * Creates new form JPanelSchedule
-     */
-    Ticket ticket;
+     */    
     
     public JPanelSchedule() {
         initComponents();
     }
-    public JPanelSchedule(Ticket t) {
-        initComponents();
-        this.ticket = t;
-    }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
