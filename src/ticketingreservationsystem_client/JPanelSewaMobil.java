@@ -4,6 +4,8 @@
  */
 package ticketingreservationsystem_client;
 
+import javax.swing.DefaultComboBoxModel;
+
 /**
  *
  * @author Lenovo
@@ -22,6 +24,13 @@ public class JPanelSewaMobil extends javax.swing.JPanel {
     public JPanelSewaMobil(JFrameReservation parent){
         this();
         this.parent = parent;
+        jComboBoxStartDay.setModel(new DefaultComboBoxModel<>(parent.day));
+        jComboBoxStartMonth.setModel(new DefaultComboBoxModel<>(parent.month));
+        jComboBoxStartYear.setModel(new DefaultComboBoxModel<>(parent.year));    
+        
+        jComboBoxEndDay.setModel(new DefaultComboBoxModel<>(parent.day));
+        jComboBoxEndMonth.setModel(new DefaultComboBoxModel<>(parent.month));
+        jComboBoxEndYear.setModel(new DefaultComboBoxModel<>(parent.year));    
     }
 
     /**

@@ -91,6 +91,15 @@ public class SocketController {
         return false;
     }
     
+    public void CariTiketPesawat(){
+    }
+    public void CariTiketKapal(){
+    }
+    public void CariTiketKereta(){
+    }
+    public void CariSewaMobil(){
+    }
+    
     
     
 }
