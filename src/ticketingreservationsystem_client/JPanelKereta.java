@@ -4,6 +4,8 @@
  */
 package ticketingreservationsystem_client;
 
+import javax.swing.DefaultComboBoxModel;
+
 /**
  *
  * @author Lenovo
@@ -13,8 +15,19 @@ public class JPanelKereta extends javax.swing.JPanel {
     /**
      * Creates new form JPanelKereta
      */
+    
+   JFrameReservation parent;
     public JPanelKereta() {
         initComponents();
+    }
+    
+    public JPanelKereta(JFrameReservation parent){
+        this();
+        this.parent = parent;
+        
+        jComboBoxDepartureDay.setModel(new DefaultComboBoxModel<>(parent.day));
+        jComboBoxDepartureMonth.setModel(new DefaultComboBoxModel<>(parent.month));
+        jComboBoxDepartureYear.setModel(new DefaultComboBoxModel<>(parent.year));        
     }
 
     /**

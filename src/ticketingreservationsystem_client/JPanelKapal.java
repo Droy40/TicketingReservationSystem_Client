@@ -4,6 +4,8 @@
  */
 package ticketingreservationsystem_client;
 
+import javax.swing.DefaultComboBoxModel;
+
 /**
  *
  * @author Lenovo
@@ -13,8 +15,18 @@ public class JPanelKapal extends javax.swing.JPanel {
     /**
      * Creates new form JPanelKapal
      */
+    JFrameReservation parent;
+    
     public JPanelKapal() {
         initComponents();
+    }
+    public JPanelKapal(JFrameReservation parent){
+        this();
+        this.parent = parent;
+        
+        jComboBoxDepartureDay.setModel(new DefaultComboBoxModel<>(parent.day));
+        jComboBoxDepartureMonth.setModel(new DefaultComboBoxModel<>(parent.month));
+        jComboBoxDepartureYear.setModel(new DefaultComboBoxModel<>(parent.year));
     }
 
     /**

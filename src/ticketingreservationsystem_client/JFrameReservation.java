@@ -5,6 +5,8 @@
 package ticketingreservationsystem_client;
 
 import java.awt.event.ActionEvent;
+import java.time.Year;
+import java.util.Date;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
@@ -18,33 +20,45 @@ public class JFrameReservation extends javax.swing.JFrame {
      * Creates new form JFrameReservation
      */
     
-//    JPanel panelPesawat,panelKereta,panelKapal,panelSewaMobil;
-    
+    JPanel panelPesawat,panelKereta,panelKapal,panelSewaMobil;
+    String[] year,month,day;
     public JFrameReservation() {
         initComponents();
         buttonGroup1.add(jRadioButtonKapal);
         buttonGroup1.add(jRadioButtonPesawat);
         buttonGroup1.add(jRadioButtonKeretaApi);
         buttonGroup1.add(jRadioButtonSewaMobil);
-        jRadioButtonPesawat.setSelected(true);        
+        jRadioButtonPesawat.setSelected(true);                        
         
-//        panelPesawat = new JPanelPesawat();
-//        panelPesawat.setVisible(true);
-//       
-//        
-//        panelKereta = new JPanelKereta();
-//        panelKereta.setVisible(false);
-//        
-//        
-//        panelKapal = new JPanelKapal();
-//        panelKapal.setVisible(false);
-//               
-//        panelSewaMobil = new JPanelSewaMobil();
-//        panelSewaMobil.setVisible(false);
-//
-//        this.add(panelPesawat); 
-//        this.pack();
+        year = new String[5];
+        for (int i = Year.now().getValue(); i < Year.now().getValue() + 5; i++) {
+            year[i-Year.now().getValue()] = String.valueOf(i);
+        }
+        month = new String[12];
+        for(int i = 1 ; i <= 12; i++){
+            month[i-1] = String.valueOf(i);
+        }
         
+        day = new String[31];
+        for(int i = 1; i <= 31 ; i++){
+            day[i-1] = String.valueOf(i);
+        }                                        
+        panelPesawat = new JPanelPesawat(this);
+        panelPesawat.setVisible(true);
+       
+        
+        panelKereta = new JPanelKereta(this);
+        panelKereta.setVisible(false);
+        
+        
+        panelKapal = new JPanelKapal(this);
+        panelKapal.setVisible(false);
+               
+        panelSewaMobil = new JPanelSewaMobil(this);
+        panelSewaMobil.setVisible(false);
+
+        this.add(panelPesawat); 
+        this.pack();
         
     }
     
@@ -59,12 +73,6 @@ public class JFrameReservation extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
-        jPanel1 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
-        jRadioButtonPesawat = new javax.swing.JRadioButton();
-        jRadioButtonKeretaApi = new javax.swing.JRadioButton();
-        jRadioButtonKapal = new javax.swing.JRadioButton();
-        jRadioButtonSewaMobil = new javax.swing.JRadioButton();
         jPanel2 = new javax.swing.JPanel();
         jComboBoxDepartureMonth = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
@@ -94,73 +102,12 @@ public class JFrameReservation extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jComboBox3 = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jPanel1.setLayout(new java.awt.BorderLayout());
-
-        jRadioButtonPesawat.setText("Pesawat");
-        jRadioButtonPesawat.setName("pesawat"); // NOI18N
-        jRadioButtonPesawat.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                radioButtonPicked(evt);
-            }
-        });
-
-        jRadioButtonKeretaApi.setText("Kereta Api");
-        jRadioButtonKeretaApi.setName("kereta"); // NOI18N
-        jRadioButtonKeretaApi.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                radioButtonPicked(evt);
-            }
-        });
-
-        jRadioButtonKapal.setText("Kapal");
-        jRadioButtonKapal.setName("kapal"); // NOI18N
-        jRadioButtonKapal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                radioButtonPicked(evt);
-            }
-        });
-
-        jRadioButtonSewaMobil.setText("Sewa Mobil");
-        jRadioButtonSewaMobil.setName("sewaMobil"); // NOI18N
-        jRadioButtonSewaMobil.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                radioButtonPicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jRadioButtonPesawat)
-                .addGap(18, 18, 18)
-                .addComponent(jRadioButtonKeretaApi)
-                .addGap(18, 18, 18)
-                .addComponent(jRadioButtonKapal)
-                .addGap(18, 18, 18)
-                .addComponent(jRadioButtonSewaMobil)
-                .addContainerGap())
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButtonPesawat)
-                    .addComponent(jRadioButtonKeretaApi)
-                    .addComponent(jRadioButtonKapal)
-                    .addComponent(jRadioButtonSewaMobil))
-                .addContainerGap())
-        );
-
-        jPanel1.add(jPanel3, java.awt.BorderLayout.PAGE_START);
-
-        getContentPane().add(jPanel1, java.awt.BorderLayout.NORTH);
+        jPanel1 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        jRadioButtonPesawat = new javax.swing.JRadioButton();
+        jRadioButtonKeretaApi = new javax.swing.JRadioButton();
+        jRadioButtonKapal = new javax.swing.JRadioButton();
+        jRadioButtonSewaMobil = new javax.swing.JRadioButton();
 
         jComboBoxDepartureMonth.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -421,7 +368,72 @@ public class JFrameReservation extends javax.swing.JFrame {
                 .addContainerGap(10, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel2, java.awt.BorderLayout.CENTER);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setLayout(new java.awt.BorderLayout());
+
+        jRadioButtonPesawat.setText("Pesawat");
+        jRadioButtonPesawat.setName("pesawat"); // NOI18N
+        jRadioButtonPesawat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radioButtonPicked(evt);
+            }
+        });
+
+        jRadioButtonKeretaApi.setText("Kereta Api");
+        jRadioButtonKeretaApi.setName("kereta"); // NOI18N
+        jRadioButtonKeretaApi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radioButtonPicked(evt);
+            }
+        });
+
+        jRadioButtonKapal.setText("Kapal");
+        jRadioButtonKapal.setName("kapal"); // NOI18N
+        jRadioButtonKapal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radioButtonPicked(evt);
+            }
+        });
+
+        jRadioButtonSewaMobil.setText("Sewa Mobil");
+        jRadioButtonSewaMobil.setName("sewaMobil"); // NOI18N
+        jRadioButtonSewaMobil.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radioButtonPicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jRadioButtonPesawat)
+                .addGap(18, 18, 18)
+                .addComponent(jRadioButtonKeretaApi)
+                .addGap(18, 18, 18)
+                .addComponent(jRadioButtonKapal)
+                .addGap(18, 18, 18)
+                .addComponent(jRadioButtonSewaMobil)
+                .addContainerGap())
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jRadioButtonPesawat)
+                    .addComponent(jRadioButtonKeretaApi)
+                    .addComponent(jRadioButtonKapal)
+                    .addComponent(jRadioButtonSewaMobil))
+                .addContainerGap())
+        );
+
+        jPanel1.add(jPanel3, java.awt.BorderLayout.PAGE_START);
+
+        getContentPane().add(jPanel1, java.awt.BorderLayout.NORTH);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -429,36 +441,36 @@ public class JFrameReservation extends javax.swing.JFrame {
     
     private void radioButtonPicked(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioButtonPicked
         // TODO add your handling code here:
-//        String radioButtonSelected = ((JRadioButton)evt.getSource()).getName();
-//        if(radioButtonSelected == "pesawat"){
-//            panelPesawat.setVisible(true);
-//            panelKereta.setVisible(false);
-//            panelKapal.setVisible(false);
-//            panelSewaMobil.setVisible(false);
-//            this.add(panelPesawat);
-//        }
-//        else if(radioButtonSelected == "kereta"){
-//            panelPesawat.setVisible(false);
-//            panelKereta.setVisible(true);
-//            panelKapal.setVisible(false);
-//            panelSewaMobil.setVisible(false);
-//            this.add(panelKereta);
-//        }
-//        else if(radioButtonSelected == "kapal"){
-//            panelPesawat.setVisible(false);
-//            panelKereta.setVisible(false);
-//            panelKapal.setVisible(true);
-//            panelSewaMobil.setVisible(false);
-//            this.add(panelKapal);
-//        }
-//        else{
-//            panelPesawat.setVisible(false);
-//            panelKereta.setVisible(false);
-//            panelKapal.setVisible(false);
-//            panelSewaMobil.setVisible(true);
-//            this.add(panelSewaMobil);
-//        }
-//        this.pack();
+        String radioButtonSelected = ((JRadioButton)evt.getSource()).getName();
+        if(radioButtonSelected == "pesawat"){
+            panelPesawat.setVisible(true);
+            panelKereta.setVisible(false);
+            panelKapal.setVisible(false);
+            panelSewaMobil.setVisible(false);
+            this.add(panelPesawat);
+        }
+        else if(radioButtonSelected == "kereta"){
+            panelPesawat.setVisible(false);
+            panelKereta.setVisible(true);
+            panelKapal.setVisible(false);
+            panelSewaMobil.setVisible(false);
+            this.add(panelKereta);
+        }
+        else if(radioButtonSelected == "kapal"){
+            panelPesawat.setVisible(false);
+            panelKereta.setVisible(false);
+            panelKapal.setVisible(true);
+            panelSewaMobil.setVisible(false);
+            this.add(panelKapal);
+        }
+        else{
+            panelPesawat.setVisible(false);
+            panelKereta.setVisible(false);
+            panelKapal.setVisible(false);
+            panelSewaMobil.setVisible(true);
+            this.add(panelSewaMobil);
+        }
+        this.pack();
 
 
          

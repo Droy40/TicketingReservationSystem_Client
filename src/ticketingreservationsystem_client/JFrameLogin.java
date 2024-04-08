@@ -11,6 +11,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import ticketingreservationsystem_client.Model.SocketController;
+import ticketingreservationsystem_client.Model.User;
 
 /**
  *
@@ -69,6 +70,9 @@ public class JFrameLogin extends javax.swing.JFrame {
         jLabelRegister.setForeground(new java.awt.Color(102, 102, 255));
         jLabelRegister.setText("Registere here");
         jLabelRegister.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelRegisterMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jLabelRegisterMouseEntered(evt);
             }
@@ -147,6 +151,13 @@ public class JFrameLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
         jLabelRegister.setForeground(new Color(102, 102, 255));
     }//GEN-LAST:event_jLabelRegisterMouseExited
+
+    private void jLabelRegisterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelRegisterMouseClicked
+        // TODO add your handling code here:
+        JFrameRegister frameRegister = new JFrameRegister(this);
+        frameRegister.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jLabelRegisterMouseClicked
 
     /**
      * @param args the command line arguments

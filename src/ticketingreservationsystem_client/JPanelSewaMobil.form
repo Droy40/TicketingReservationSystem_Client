@@ -146,17 +146,17 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jComboBoxDepartureDay" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jComboBoxStartDay" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jComboBoxDepartureMonth" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jComboBoxStartMonth" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jComboBoxDepartureYear" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jComboBoxStartYear" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
@@ -175,17 +175,17 @@
                               <Group type="102" alignment="1" attributes="0">
                                   <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jComboBoxDepartureMonth" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jComboBoxStartMonth" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
                                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jComboBoxDepartureDay" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jComboBoxStartDay" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
                                   <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jComboBoxDepartureYear" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jComboBoxStartYear" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
@@ -194,7 +194,7 @@
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JComboBox" name="jComboBoxDepartureMonth">
+                <Component class="javax.swing.JComboBox" name="jComboBoxStartMonth">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="4">
@@ -219,7 +219,7 @@
                     <Property name="text" type="java.lang.String" value="Day"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="jComboBoxDepartureDay">
+                <Component class="javax.swing.JComboBox" name="jComboBoxStartDay">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="4">
@@ -234,7 +234,7 @@
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="jComboBoxDepartureYear">
+                <Component class="javax.swing.JComboBox" name="jComboBoxStartYear">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="4">
@@ -347,17 +347,17 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jComboBoxDepartureDay1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jComboBoxEndDay" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jComboBoxDepartureMonth1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jComboBoxEndMonth" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jComboBoxDepartureYear1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jComboBoxEndYear" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
@@ -376,17 +376,17 @@
                               <Group type="102" alignment="1" attributes="0">
                                   <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jComboBoxDepartureMonth1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jComboBoxEndMonth" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
                                   <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jComboBoxDepartureDay1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jComboBoxEndDay" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
                                   <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jComboBoxDepartureYear1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jComboBoxEndYear" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
@@ -395,7 +395,7 @@
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JComboBox" name="jComboBoxDepartureMonth1">
+                <Component class="javax.swing.JComboBox" name="jComboBoxEndMonth">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="4">
@@ -420,7 +420,7 @@
                     <Property name="text" type="java.lang.String" value="Day"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="jComboBoxDepartureDay1">
+                <Component class="javax.swing.JComboBox" name="jComboBoxEndDay">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="4">
@@ -435,7 +435,7 @@
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="jComboBoxDepartureYear1">
+                <Component class="javax.swing.JComboBox" name="jComboBoxEndYear">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="4">

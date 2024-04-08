@@ -9,6 +9,7 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.Socket;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -64,7 +65,6 @@ public class SocketController {
             String[] messagesToServer = { "LOGIN",username,password};            
             String messageToServer = String.join("~", messagesToServer);            
             SendMessageToServer(messageToServer);
-            System.out.println("line55");
             String[] messagesFromServer = ListeningFromServer();
             if(messagesFromServer[0].equals("LOGIN-SUKSES")){
                 userLogin = new User(messagesFromServer);
@@ -76,6 +76,20 @@ public class SocketController {
         return false;
     }
     
+    public boolean UserRegister(String fullname, String username, String email, Date dob, String password){
+        try {
+            String[] messagesToServer = {"REGISTER",fullname,username,email,dob.getDate() + "/" + dob.getMonth() + "/" + dob.getYear(),password};
+            String messageToServer = String.join("~", messagesToServer);
+            SendMessageToServer(messageToServer);
+            String[] messagesFromServer = ListeningFromServer();
+            if(messagesFromServer[0].equals("REGISTER-SUKSES")){
+                return true;
+            } 
+        } catch (Exception e) {
+            Logger.getLogger(SocketController.class.getName()).log(Level.SEVERE, null, e);
+        }
+        return false;
+    }
     
     
     

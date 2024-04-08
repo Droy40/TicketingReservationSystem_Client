@@ -4,7 +4,10 @@
  */
 package ticketingreservationsystem_client;
 
+import java.util.Date;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
+import ticketingreservationsystem_client.Model.User;
 
 /**
  *
@@ -53,7 +56,7 @@ public class JFrameRegister extends javax.swing.JFrame {
         jComboBoxDobYear = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jTextFieldEmail1 = new javax.swing.JTextField();
+        jTextFieldUsername = new javax.swing.JTextField();
         jLabelFullname2 = new javax.swing.JLabel();
         jLabelFullname3 = new javax.swing.JLabel();
         jLabelFullname4 = new javax.swing.JLabel();
@@ -129,7 +132,7 @@ public class JFrameRegister extends javax.swing.JFrame {
                                     .addComponent(jLabel4)))
                             .addComponent(jLabel1)
                             .addComponent(jLabelFullname2)
-                            .addComponent(jTextFieldEmail1, javax.swing.GroupLayout.DEFAULT_SIZE, 319, Short.MAX_VALUE)
+                            .addComponent(jTextFieldUsername, javax.swing.GroupLayout.DEFAULT_SIZE, 319, Short.MAX_VALUE)
                             .addComponent(jLabelFullname3)
                             .addComponent(jLabelFullname4)
                             .addComponent(jPasswordFieldPassword)
@@ -171,7 +174,7 @@ public class JFrameRegister extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabelFullname2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextFieldEmail1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTextFieldUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabelFullname3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -195,8 +198,21 @@ public class JFrameRegister extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonBackActionPerformed
 
     private void jButtonRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegisterActionPerformed
-        // TODO add your handling code here:
-        
+
+        if(String.valueOf(jPasswordFieldPassword.getPassword()).equals(String.valueOf(jPasswordFieldConfirmPassword.getPassword()))){
+            boolean is_success = parent.socketController.UserRegister(jTextFieldFullname.getText(), jTextFieldUsername.getText(), jTextFieldUsername.getText(), new Date(Integer.parseInt((String)jComboBoxDobYear.getSelectedItem())-1900, Integer.parseInt((String)jComboBoxDobMonth.getSelectedItem())-1, Integer.parseInt((String)jComboBoxDobDay.getSelectedItem())) , String.valueOf(jPasswordFieldPassword.getPassword()));
+            if(is_success){
+                JOptionPane.showMessageDialog(this, "Register berhasil");
+                this.parent.setVisible(true);
+                this.dispose();
+            }
+            else{
+                JOptionPane.showMessageDialog(this, "Register gagal, username telah digunakan");
+            }
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "Periksa kembali password anda");
+        }
     }//GEN-LAST:event_jButtonRegisterActionPerformed
 
     /**
@@ -252,7 +268,7 @@ public class JFrameRegister extends javax.swing.JFrame {
     private javax.swing.JPasswordField jPasswordFieldConfirmPassword;
     private javax.swing.JPasswordField jPasswordFieldPassword;
     private javax.swing.JTextField jTextFieldEmail;
-    private javax.swing.JTextField jTextFieldEmail1;
     private javax.swing.JTextField jTextFieldFullname;
+    private javax.swing.JTextField jTextFieldUsername;
     // End of variables declaration//GEN-END:variables
 }

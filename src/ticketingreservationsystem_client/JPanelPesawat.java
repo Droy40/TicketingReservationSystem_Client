@@ -4,6 +4,8 @@
  */
 package ticketingreservationsystem_client;
 
+import javax.swing.DefaultComboBoxModel;
+
 /**
  *
  * @author Lenovo
@@ -13,10 +15,19 @@ public class JPanelPesawat extends javax.swing.JPanel {
     /**
      * Creates new form JPanelPesawat
      */
+    
+    JFrameReservation parent;
     public JPanelPesawat() {
-        initComponents();
+        initComponents();              
+    }
+    
+    public JPanelPesawat(JFrameReservation parent){
+        this();
+        this.parent = parent;
         
-        
+        jComboBoxDepartureDay.setModel(new DefaultComboBoxModel<>(parent.day));
+        jComboBoxDepartureMonth.setModel(new DefaultComboBoxModel<>(parent.month));
+        jComboBoxDepartureYear.setModel(new DefaultComboBoxModel<>(parent.year));    
     }
 
     /**
