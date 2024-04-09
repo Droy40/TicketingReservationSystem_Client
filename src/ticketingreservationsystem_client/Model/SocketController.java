@@ -9,6 +9,7 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.Socket;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -91,13 +92,77 @@ public class SocketController {
         return false;
     }
     
-    public void CariTiketPesawat(){
+    public ArrayList<String> CariTiketPesawat(Date departureDate, String from, String to, int adult, int children, int infant, String seatClass){
+        try {
+            String[] messagesToServer = {"CARI-TIKET-PESAWAT", departureDate.getDate() + "/" + departureDate.getMonth() + "/" + departureDate.getYear(),from,to,String.valueOf(adult),String.valueOf(children), String.valueOf(infant), seatClass};
+            String mesageToServer = String.join("~", messagesToServer);
+            SendMessageToServer(mesageToServer);
+            String[] messagesFromServer = ListeningFromServer();
+            if(messagesFromServer[0].equals("TIKET-DITEMUKAN")){
+                ArrayList<String> tikets = new ArrayList<>();
+                for (int i = 1; i < messagesFromServer.length; i++) {
+                    tikets.add(messagesFromServer[i]);
+                }
+                return tikets;
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(SocketController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
     }
-    public void CariTiketKapal(){
+    public ArrayList<String> CariTiketKapal(Date departureDate, String from, String to, int adult, int children, int infant, String seatClass){
+        try {
+            String[] messagesToServer = {"CARI-TIKET-KAPAL", departureDate.getDate() + "/" + departureDate.getMonth() + "/" + departureDate.getYear(),from,to,String.valueOf(adult),String.valueOf(children), String.valueOf(infant), seatClass};
+            String mesageToServer = String.join("~", messagesToServer);
+            SendMessageToServer(mesageToServer);
+            String[] messagesFromServer = ListeningFromServer();
+            if(messagesFromServer[0].equals("TIKET-DITEMUKAN")){
+                ArrayList<String> tikets = new ArrayList<>();
+                for (int i = 1; i < messagesFromServer.length; i++) {
+                    tikets.add(messagesFromServer[i]);
+                }
+                return tikets;
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(SocketController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
     }
-    public void CariTiketKereta(){
+    public ArrayList<String> CariTiketKereta(Date departureDate, String from, String to, int adult, int children, int infant, String seatClass){
+        try {
+            String[] messagesToServer = {"CARI-TIKET-KERETA", departureDate.getDate() + "/" + departureDate.getMonth() + "/" + departureDate.getYear(),from,to,String.valueOf(adult),String.valueOf(children), String.valueOf(infant), seatClass};
+            String mesageToServer = String.join("~", messagesToServer);
+            SendMessageToServer(mesageToServer);
+            String[] messagesFromServer = ListeningFromServer();
+            if(messagesFromServer[0].equals("TIKET-DITEMUKAN")){
+                ArrayList<String> tikets = new ArrayList<>();
+                for (int i = 1; i < messagesFromServer.length; i++) {
+                    tikets.add(messagesFromServer[i]);
+                }
+                return tikets;
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(SocketController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
     }
-    public void CariSewaMobil(){
+    public ArrayList<String> CariSewaMobil(Date rentStart, Date rendEnd, String location, String seatClass, boolean is_withDriver){
+        try {
+            String[] messagesToServer = {"CARI-SEWA-MOBIL", rentStart.getDate() + "/" + rentStart.getMonth() + "/" + rentStart.getYear(),rendEnd.getDate() + "/" + rendEnd.getMonth() + "/" + rendEnd.getYear(),location,seatClass,String.valueOf(is_withDriver)};
+            String mesageToServer = String.join("~", messagesToServer);
+            SendMessageToServer(mesageToServer);
+            String[] messagesFromServer = ListeningFromServer();
+            if(messagesFromServer[0].equals("SEWA-MOBIL-DITEMUKAN")){
+                ArrayList<String> tikets = new ArrayList<>();
+                for (int i = 1; i < messagesFromServer.length; i++) {
+                    tikets.add(messagesFromServer[i]);
+                }
+                return tikets;
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(SocketController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
     }
     
     
