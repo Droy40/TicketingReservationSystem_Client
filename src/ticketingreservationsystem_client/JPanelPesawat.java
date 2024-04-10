@@ -4,6 +4,10 @@
  */
 package ticketingreservationsystem_client;
 
+import java.io.IOException;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 
 /**
@@ -50,13 +54,13 @@ public class JPanelPesawat extends javax.swing.JPanel {
         jPanel6 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
-        jSpinner3 = new javax.swing.JSpinner();
+        jSpinnerInfants = new javax.swing.JSpinner();
         jLabel14 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
-        jSpinner2 = new javax.swing.JSpinner();
+        jSpinnerChildren = new javax.swing.JSpinner();
         jLabel13 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        jSpinner1 = new javax.swing.JSpinner();
+        jSpinnerAdults = new javax.swing.JSpinner();
         jLabel12 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
@@ -67,7 +71,7 @@ public class JPanelPesawat extends javax.swing.JPanel {
         jTextFieldFrom = new javax.swing.JTextField();
         jPanel8 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        jComboBox3 = new javax.swing.JComboBox<>();
+        jComboBoxSeatClass = new javax.swing.JComboBox<>();
         jButtonCariTIket = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(600, 250));
@@ -144,7 +148,7 @@ public class JPanelPesawat extends javax.swing.JPanel {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSpinner3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jSpinnerInfants, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel14))
                 .addContainerGap())
         );
@@ -154,7 +158,7 @@ public class JPanelPesawat extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel14)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSpinner3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jSpinnerInfants, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -165,14 +169,14 @@ public class JPanelPesawat extends javax.swing.JPanel {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel13)
-            .addComponent(jSpinner2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jSpinnerChildren, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addComponent(jLabel13)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSpinner2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jSpinnerChildren, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jLabel12.setText("Adults");
@@ -182,14 +186,14 @@ public class JPanelPesawat extends javax.swing.JPanel {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel12)
-            .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jSpinnerAdults, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addComponent(jLabel12)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jSpinnerAdults, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
@@ -294,7 +298,7 @@ public class JPanelPesawat extends javax.swing.JPanel {
 
         jLabel5.setText("Seat Class:");
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Economy", "Premium Economy", "Business", "First Class" }));
+        jComboBoxSeatClass.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Economy", "Premium Economy", "Business", "First Class" }));
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -304,7 +308,7 @@ public class JPanelPesawat extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5)
-                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBoxSeatClass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel8Layout.setVerticalGroup(
@@ -313,7 +317,7 @@ public class JPanelPesawat extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jComboBoxSeatClass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(33, Short.MAX_VALUE))
         );
 
@@ -360,16 +364,25 @@ public class JPanelPesawat extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonCariTIketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCariTIketActionPerformed
-        // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
+            parent.parent.socketController.CariTiketPesawat(new Date(Integer.parseInt((String)jComboBoxDepartureYear.getSelectedItem())-1900, Integer.parseInt((String)jComboBoxDepartureMonth.getSelectedItem())-1, Integer.parseInt((String)jComboBoxDepartureDay.getSelectedItem())), jTextFieldFrom.getText(), jTextFieldTo.getText(), (int)jSpinnerAdults.getValue(), (int)jSpinnerChildren.getValue(), (int)jSpinnerInfants.getValue(), (String)jComboBoxSeatClass.getSelectedItem());
+            
+            JFrameScheduleList temp = new JFrameScheduleList(parent,parent.parent.socketController.ListeningFromServer());
+            temp.setVisible(true);
+            parent.setVisible(false);
+        } catch (IOException ex) {
+            Logger.getLogger(JPanelPesawat.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButtonCariTIketActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonCariTIket;
-    private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JComboBox<String> jComboBoxDepartureDay;
     private javax.swing.JComboBox<String> jComboBoxDepartureMonth;
     private javax.swing.JComboBox<String> jComboBoxDepartureYear;
+    private javax.swing.JComboBox<String> jComboBoxSeatClass;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -390,9 +403,9 @@ public class JPanelPesawat extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanelTimeDeparture;
-    private javax.swing.JSpinner jSpinner1;
-    private javax.swing.JSpinner jSpinner2;
-    private javax.swing.JSpinner jSpinner3;
+    private javax.swing.JSpinner jSpinnerAdults;
+    private javax.swing.JSpinner jSpinnerChildren;
+    private javax.swing.JSpinner jSpinnerInfants;
     private javax.swing.JTextField jTextFieldFrom;
     private javax.swing.JTextField jTextFieldTo;
     // End of variables declaration//GEN-END:variables

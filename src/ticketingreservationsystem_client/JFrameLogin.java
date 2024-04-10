@@ -11,7 +11,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import ticketingreservationsystem_client.Model.SocketController;
-import ticketingreservationsystem_client.Model.User;
 
 /**
  *
@@ -131,9 +130,9 @@ public class JFrameLogin extends javax.swing.JFrame {
         String password = String.valueOf(jPasswordFieldPassword.getPassword());
         
         if(socketController.UserLogin(username, password)){
-            JFrameReservation temp = new JFrameReservation();
+            JFrameReservation temp = new JFrameReservation(this);
             temp.setVisible(true);
-            this.dispose();
+            this.setVisible(false);
         }
         else{
             JOptionPane.showMessageDialog(this, "Login gagal. Perikas Username dan Password");

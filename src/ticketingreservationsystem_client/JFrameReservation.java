@@ -20,6 +20,8 @@ public class JFrameReservation extends javax.swing.JFrame {
      * Creates new form JFrameReservation
      */
     
+    JFrameLogin parent;
+    
     JPanel panelPesawat,panelKereta,panelKapal,panelSewaMobil;
     String[] year,month,day;
     public JFrameReservation() {
@@ -60,6 +62,11 @@ public class JFrameReservation extends javax.swing.JFrame {
         this.add(panelPesawat); 
         this.pack();
         
+    }
+    
+    public JFrameReservation(JFrameLogin parent){
+        this();
+        this.parent = parent;
     }
     
 
@@ -478,9 +485,9 @@ public class JFrameReservation extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        JFrameScheduleList frameScheduleList = new JFrameScheduleList(this);
-        frameScheduleList.setVisible(true);
-        this.setVisible(false);
+//        JFrameScheduleList frameScheduleList = new JFrameScheduleList(this);
+//        frameScheduleList.setVisible(true);
+//        this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

@@ -98,7 +98,7 @@ public class SocketController {
             String mesageToServer = String.join("~", messagesToServer);
             SendMessageToServer(mesageToServer);
             String[] messagesFromServer = ListeningFromServer();
-            if(messagesFromServer[0].equals("TIKET-DITEMUKAN")){
+            if(messagesFromServer[0].equals("TIKET-PESAWAT-DITEMUKAN")){
                 ArrayList<String> tikets = new ArrayList<>();
                 for (int i = 1; i < messagesFromServer.length; i++) {
                     tikets.add(messagesFromServer[i]);

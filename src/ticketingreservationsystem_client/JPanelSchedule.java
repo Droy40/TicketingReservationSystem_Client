@@ -4,6 +4,8 @@
  */
 package ticketingreservationsystem_client;
 
+import java.util.Date;
+
 
 /**
  *
@@ -13,10 +15,23 @@ public class JPanelSchedule extends javax.swing.JPanel {
 
     /**
      * Creates new form JPanelSchedule
+     * @param airlineName
      */    
     
-    public JPanelSchedule() {
+    public JPanelSchedule(){
+        initComponents();    
+    }
+    
+    public JPanelSchedule(String flightNumber,String airlineName, String departureAirport, String arrivalAirport, Date departuteDate, String seatClass, String price) {
         initComponents();
+        jLabelFlightNumber.setText(flightNumber);
+        jLabelAirlineTrainShipName.setText(airlineName);
+        jLabelOriginLocation.setText(departureAirport);
+        jLabelDestinationLocation.setText(arrivalAirport);
+        jLabelDepartureDate.setText(departuteDate.getDate() + " / " + departuteDate.getMonth() + " / " + departuteDate.getYear());
+        jLabelSeatClass.setText(seatClass);
+        jLabelPrice.setText(price);
+        
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -33,13 +48,13 @@ public class JPanelSchedule extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jLabelOriginLocation = new javax.swing.JLabel();
         jLabelDestinationLocation = new javax.swing.JLabel();
-        jLabelDepartureTime = new javax.swing.JLabel();
-        jLabelArrivalTime = new javax.swing.JLabel();
+        jLabelDepartureDate = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabelSeatClass = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabelPrice = new javax.swing.JLabel();
         jButtonBook = new javax.swing.JButton();
+        jLabelFlightNumber = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -64,9 +79,7 @@ public class JPanelSchedule extends javax.swing.JPanel {
 
         jLabelDestinationLocation.setText("Destination");
 
-        jLabelDepartureTime.setText("Departure Time");
-
-        jLabelArrivalTime.setText("Arrival Time");
+        jLabelDepartureDate.setText("Departure Date");
 
         jLabel7.setText("Seat Class :");
 
@@ -83,6 +96,8 @@ public class JPanelSchedule extends javax.swing.JPanel {
             }
         });
 
+        jLabelFlightNumber.setText("flightNumber");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -98,22 +113,23 @@ public class JPanelSchedule extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel2)))
                         .addGap(167, 167, 167)
-                        .addComponent(jLabel7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabelSeatClass))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel7)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabelSeatClass))
+                            .addComponent(jLabelFlightNumber)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabelOriginLocation)
-                            .addComponent(jLabelDepartureTime))
+                            .addComponent(jLabelDepartureDate))
                         .addGap(67, 67, 67)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelArrivalTime)
-                            .addComponent(jLabelDestinationLocation))
-                        .addGap(107, 107, 107)
+                        .addComponent(jLabelDestinationLocation)
+                        .addGap(111, 111, 111)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabelPrice)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 141, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 142, Short.MAX_VALUE)
                                 .addComponent(jButtonBook, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel9))))
                 .addContainerGap())
@@ -122,7 +138,9 @@ public class JPanelSchedule extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabelAirlineTrainShipName)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelAirlineTrainShipName)
+                    .addComponent(jLabelFlightNumber))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
@@ -136,8 +154,7 @@ public class JPanelSchedule extends javax.swing.JPanel {
                     .addComponent(jLabel9))
                 .addGap(5, 5, 5)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelArrivalTime)
-                    .addComponent(jLabelDepartureTime)
+                    .addComponent(jLabelDepartureDate)
                     .addComponent(jLabelPrice))
                 .addContainerGap(33, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -162,9 +179,9 @@ public class JPanelSchedule extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelAirlineTrainShipName;
-    private javax.swing.JLabel jLabelArrivalTime;
-    private javax.swing.JLabel jLabelDepartureTime;
+    private javax.swing.JLabel jLabelDepartureDate;
     private javax.swing.JLabel jLabelDestinationLocation;
+    private javax.swing.JLabel jLabelFlightNumber;
     private javax.swing.JLabel jLabelOriginLocation;
     private javax.swing.JLabel jLabelPrice;
     private javax.swing.JLabel jLabelSeatClass;
