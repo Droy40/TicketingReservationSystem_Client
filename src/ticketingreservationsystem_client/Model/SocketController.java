@@ -92,6 +92,9 @@ public class SocketController {
         return false;
     }
     
+    //Request tiket pesawat : "CARI-TIKET-PESAWAT~DATE/MONTH/YEAR~FROM~TO~ADULT~CHILDREN~INFANT~SEATCLASS"
+    // RESPONSE JIKA TIKET DITEMUKAN : "TIKET-PESAWAT-DITEMUKAN~TIKET1(FLIGHTNUMBER,DATE/MONTH/YEAR,FROM,TO,SEATCLASS,AIRLINE,PRICE)~TIKET2~TIKET SETERUSNYA"
+    // RESPONSE JIKA TIKET TIDAK DITEMUKAN : "TIKET-PESAWAT-TIDAK-DITEMUKAN""
     public ArrayList<String> CariTiketPesawat(Date departureDate, String from, String to, int adult, int children, int infant, String seatClass){
         try {
             String[] messagesToServer = {"CARI-TIKET-PESAWAT", departureDate.getDate() + "/" + departureDate.getMonth() + "/" + departureDate.getYear(),from,to,String.valueOf(adult),String.valueOf(children), String.valueOf(infant), seatClass};

@@ -4,8 +4,8 @@
  */
 package ticketingreservationsystem_client;
 
-import com.sun.xml.internal.fastinfoset.EncodingConstants;
 import java.awt.Dimension;
+import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.BoxLayout;
 import javax.swing.JFrame;
@@ -26,27 +26,24 @@ public class JFrameScheduleList extends javax.swing.JFrame {
         initComponents();
     }
     
-    public JFrameScheduleList(JFrame owner, String[] messageFromServer){
+    public JFrameScheduleList(JFrame owner, ArrayList<String> tiket){
         this();
-        this.owner = owner;
-        
-        if(messageFromServer[0].equals("TIKET-PESAWAT-DITEMUKAN")){
-            JPanel b = new JPanel();
+        this.owner = owner;        
+        JPanel b = new JPanel();
 
-            for(int i = 1; i < messageFromServer.length; i++){
-                String[] detailTiket = messageFromServer[i].split(",");
-                String[] departureDate = detailTiket[1].split("/");
-                JPanelSchedule c = new JPanelSchedule(detailTiket[0],detailTiket[5], detailTiket[2], departureDate[3] , new Date(Integer.parseInt(departureDate[2]),Integer.parseInt(departureDate[1]),Integer.parseInt(departureDate[0])), detailTiket[4] , detailTiket[6]);
-                b.setLayout(new BoxLayout(b,BoxLayout.Y_AXIS));
-                b.add(c);
-            }
-            JScrollPane a = new JScrollPane(b);
-            
-            this.add(a);
-            this.setPreferredSize(new Dimension(700,500));
-            this.pack();
-
+        for(int i = 0; i < tiket.size(); i++){
+            String[] detailTiket = tiket.get(i).split(",");
+            String[] departureDate = detailTiket[1].split("/");
+            JPanelSchedule c = new JPanelSchedule(detailTiket[0],new Date(Integer.parseInt(departureDate[2]),Integer.parseInt(departureDate[1]),Integer.parseInt(departureDate[0])),detailTiket[2],detailTiket[3],detailTiket[4],detailTiket[5],detailTiket[6]);
+            b.setLayout(new BoxLayout(b,BoxLayout.Y_AXIS));
+            b.add(c);
         }
+        JScrollPane a = new JScrollPane(b);
+
+        this.add(a);
+        this.setPreferredSize(new Dimension(700,500));
+        this.pack();
+
     }
 
     /**

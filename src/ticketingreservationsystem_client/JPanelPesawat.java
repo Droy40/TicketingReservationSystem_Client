@@ -4,11 +4,12 @@
  */
 package ticketingreservationsystem_client;
 
-import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -366,13 +367,18 @@ public class JPanelPesawat extends javax.swing.JPanel {
     private void jButtonCariTIketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCariTIketActionPerformed
         try {
             // TODO add your handling code here:
-            parent.parent.socketController.CariTiketPesawat(new Date(Integer.parseInt((String)jComboBoxDepartureYear.getSelectedItem())-1900, Integer.parseInt((String)jComboBoxDepartureMonth.getSelectedItem())-1, Integer.parseInt((String)jComboBoxDepartureDay.getSelectedItem())), jTextFieldFrom.getText(), jTextFieldTo.getText(), (int)jSpinnerAdults.getValue(), (int)jSpinnerChildren.getValue(), (int)jSpinnerInfants.getValue(), (String)jComboBoxSeatClass.getSelectedItem());
+            ArrayList<String> tiket = parent.parent.socketController.CariTiketPesawat(new Date(Integer.parseInt((String)jComboBoxDepartureYear.getSelectedItem())-1900, Integer.parseInt((String)jComboBoxDepartureMonth.getSelectedItem())-1, Integer.parseInt((String)jComboBoxDepartureDay.getSelectedItem())), jTextFieldFrom.getText(), jTextFieldTo.getText(), (int)jSpinnerAdults.getValue(), (int)jSpinnerChildren.getValue(), (int)jSpinnerInfants.getValue(), (String)jComboBoxSeatClass.getSelectedItem());
             
-            JFrameScheduleList temp = new JFrameScheduleList(parent,parent.parent.socketController.ListeningFromServer());
-            temp.setVisible(true);
-            parent.setVisible(false);
-        } catch (IOException ex) {
-            Logger.getLogger(JPanelPesawat.class.getName()).log(Level.SEVERE, null, ex);
+            if(tiket != null){
+                JFrameScheduleList temp = new JFrameScheduleList(parent,tiket);
+                temp.setVisible(true);
+                parent.setVisible(false);
+            }
+            else{
+                JOptionPane.showMessageDialog(this, "Ticket tidak ditemukan");
+            }
+        } catch(Exception e){
+            Logger.getLogger(JPanelPesawat.class.getName()).log(Level.SEVERE, null, e);
         }
     }//GEN-LAST:event_jButtonCariTIketActionPerformed
 

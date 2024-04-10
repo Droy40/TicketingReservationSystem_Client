@@ -22,13 +22,13 @@ public class JPanelSchedule extends javax.swing.JPanel {
         initComponents();    
     }
     
-    public JPanelSchedule(String flightNumber,String airlineName, String departureAirport, String arrivalAirport, Date departuteDate, String seatClass, String price) {
+    public JPanelSchedule(String flightNumber, Date departureDate, String departureAirport, String arrivalAirport, String seatClass, String airlineName, String price) {
         initComponents();
         jLabelFlightNumber.setText(flightNumber);
         jLabelAirlineTrainShipName.setText(airlineName);
         jLabelOriginLocation.setText(departureAirport);
         jLabelDestinationLocation.setText(arrivalAirport);
-        jLabelDepartureDate.setText(departuteDate.getDate() + " / " + departuteDate.getMonth() + " / " + departuteDate.getYear());
+        jLabelDepartureDate.setText(departureDate.getDate() + " / " + (departureDate.getMonth() + 1) + " / " + (departureDate.getYear()+1900));
         jLabelSeatClass.setText(seatClass);
         jLabelPrice.setText(price);
         
