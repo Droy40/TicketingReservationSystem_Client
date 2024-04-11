@@ -370,7 +370,7 @@ public class JPanelPesawat extends javax.swing.JPanel {
             ArrayList<String> tiket = parent.parent.socketController.CariTiketPesawat(new Date(Integer.parseInt((String)jComboBoxDepartureYear.getSelectedItem())-1900, Integer.parseInt((String)jComboBoxDepartureMonth.getSelectedItem())-1, Integer.parseInt((String)jComboBoxDepartureDay.getSelectedItem())), jTextFieldFrom.getText(), jTextFieldTo.getText(), (int)jSpinnerAdults.getValue(), (int)jSpinnerChildren.getValue(), (int)jSpinnerInfants.getValue(), (String)jComboBoxSeatClass.getSelectedItem());
             
             if(tiket != null){
-                JFrameScheduleList temp = new JFrameScheduleList(parent,tiket);
+                JFrameScheduleList temp = new JFrameScheduleList(parent,tiket,(int)jSpinnerAdults.getValue(), (int)jSpinnerChildren.getValue(), (int)jSpinnerInfants.getValue());
                 temp.setVisible(true);
                 parent.setVisible(false);
             }

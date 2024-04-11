@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import ticketingreservationsystem_client.JPanelPassengerDetail;
 
 /**
  *
@@ -166,6 +167,39 @@ public class SocketController {
             Logger.getLogger(SocketController.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
+    }
+    
+    // REQUEST BOOKING TIKET = "BOOKING-TIKET-PESAWAT~IDFlightSchedule~OBJPENUMPANG0(JENISPENUMPANG,TITLE,FIRSTMIDDLENAME,LASTNAME,DAY/MONTH/YEAR,NATIONALITY)~OBJEKPENUMPANG1~OBJEKPENUMPANG2~....."
+    // RESPONSE BOOKING TIKET BERHASIL = "BOOKING-TIKET-PESAWAT-BERHASIL~IDRESERVERSI"  
+    public String BookingTiket(String noPenerbangan, ArrayList<JPanelPassengerDetail> passenger){
+        try {
+            ArrayList<String> messagesToServer = new ArrayList<>();
+            messagesToServer.add("BOOKING-TIKET-PESAWAT");
+            messagesToServer.add(noPenerbangan);
+            
+            for (JPanelPassengerDetail jPanelPassengerDetail : passenger) {
+                ArrayList<String> passengerDetail = new ArrayList<>();
+                passengerDetail.add(jPanelPassengerDetail.passengerType);
+                passengerDetail.add((String)jPanelPassengerDetail.jComboBoxTitle.getSelectedItem());
+                passengerDetail.add(jPanelPassengerDetail.jTextFieldFirstMiddleName.getText());
+                passengerDetail.add(jPanelPassengerDetail.jTextFieldLastName.getText());
+                passengerDetail.add(jPanelPassengerDetail.jTextFieldDobDay.getText() + "/" + jPanelPassengerDetail.jTextFieldDobMonth.getText() + "/" + jPanelPassengerDetail.jTextFieldDobYear.getText());
+                passengerDetail.add(jPanelPassengerDetail.jTextFieldNationality.getText());
+                messagesToServer.add(String.join(",", passengerDetail));
+            }
+            
+            String messageToServer = String.join("~", messagesToServer);
+            this.SendMessageToServer(messageToServer);
+            
+            String[] messageFromServer = ListeningFromServer();
+            
+            if(messageFromServer[0].equals("BOOKING-TIKET-PESAWAT-BERHASIL")){
+                return messageFromServer[1];
+            }           
+        } catch (IOException ex) {
+            Logger.getLogger(SocketController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;                        
     }
     
     

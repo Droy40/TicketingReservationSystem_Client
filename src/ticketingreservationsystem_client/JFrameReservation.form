@@ -532,6 +532,8 @@
                       <Component id="jRadioButtonKapal" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jRadioButtonSewaMobil" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="253" max="32767" attributes="0"/>
+                      <Component id="jButtonHistory" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -545,6 +547,7 @@
                           <Component id="jRadioButtonKeretaApi" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jRadioButtonKapal" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jRadioButtonSewaMobil" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jButtonHistory" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -587,6 +590,11 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="radioButtonPicked"/>
               </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="jButtonHistory">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="History"/>
+              </Properties>
             </Component>
           </SubComponents>
         </Container>

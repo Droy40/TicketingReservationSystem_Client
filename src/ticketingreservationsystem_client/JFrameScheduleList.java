@@ -21,20 +21,21 @@ public class JFrameScheduleList extends javax.swing.JFrame {
     /**
      * Creates new form JFrameScheduleList
      */
-    private JFrame owner;
+    public JFrameReservation parent;
+    public int adult, children, infant;
     public JFrameScheduleList() {
         initComponents();
     }
     
-    public JFrameScheduleList(JFrame owner, ArrayList<String> tiket){
+    public JFrameScheduleList(JFrameReservation parent, ArrayList<String> tiket, int adult, int children, int infant){
         this();
-        this.owner = owner;        
+        this.parent = parent;        
         JPanel b = new JPanel();
 
         for(int i = 0; i < tiket.size(); i++){
             String[] detailTiket = tiket.get(i).split(",");
             String[] departureDate = detailTiket[1].split("/");
-            JPanelSchedule c = new JPanelSchedule(detailTiket[0],new Date(Integer.parseInt(departureDate[2]),Integer.parseInt(departureDate[1]),Integer.parseInt(departureDate[0])),detailTiket[2],detailTiket[3],detailTiket[4],detailTiket[5],detailTiket[6]);
+            JPanelSchedule c = new JPanelSchedule(this,detailTiket[0],new Date(Integer.parseInt(departureDate[2]),Integer.parseInt(departureDate[1]),Integer.parseInt(departureDate[0])),detailTiket[2],detailTiket[3],detailTiket[4],detailTiket[5],detailTiket[6]);
             b.setLayout(new BoxLayout(b,BoxLayout.Y_AXIS));
             b.add(c);
         }
@@ -44,6 +45,9 @@ public class JFrameScheduleList extends javax.swing.JFrame {
         this.setPreferredSize(new Dimension(700,500));
         this.pack();
 
+        this.adult = adult;
+        this.children = children;
+        this.infant = infant;
     }
 
     /**
@@ -98,7 +102,7 @@ public class JFrameScheduleList extends javax.swing.JFrame {
 
     private void jButtonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBackActionPerformed
         // TODO add your handling code here:
-        owner.setVisible(true);
+        parent.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButtonBackActionPerformed
 

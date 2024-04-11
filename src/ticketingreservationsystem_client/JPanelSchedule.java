@@ -5,6 +5,7 @@
 package ticketingreservationsystem_client;
 
 import java.util.Date;
+import javax.swing.JFrame;
 
 /**
  *
@@ -19,12 +20,13 @@ public class JPanelSchedule extends javax.swing.JPanel{
     
     public String flightNumber, departureAirport, arrivalAirport, seatClass,airlineName, price;
     public Date departureDate;
+    public JFrame parent;
     
     public JPanelSchedule(){
         initComponents();    
     }
     
-    public JPanelSchedule(String flightNumber, Date departureDate, String departureAirport, String arrivalAirport, String seatClass, String airlineName, String price) {
+    public JPanelSchedule(JFrameScheduleList parent,String flightNumber, Date departureDate, String departureAirport, String arrivalAirport, String seatClass, String airlineName, String price) {
         initComponents();
         this.flightNumber = flightNumber;
         this.departureDate = departureDate;
@@ -42,11 +44,28 @@ public class JPanelSchedule extends javax.swing.JPanel{
         jLabelSeatClass.setText(seatClass);
         jLabelPrice.setText(price);
         
+        this.parent = parent;
     }
     
-    //clone
-    public JPanelSchedule(JPanelSchedule panel){
-        this(panel.flightNumber,panel.departureDate,panel.departureAirport, panel.arrivalAirport, panel.seatClass, panel.airlineName, panel.price);        
+    public JPanelSchedule(JFrameBookTicket parent,String flightNumber, Date departureDate, String departureAirport, String arrivalAirport, String seatClass, String airlineName, String price) {
+        initComponents();
+        this.flightNumber = flightNumber;
+        this.departureDate = departureDate;
+        this.departureAirport = departureAirport;
+        this.arrivalAirport = arrivalAirport;
+        this.seatClass = seatClass;
+        this.airlineName = airlineName;
+        this.price = price;
+        
+        jLabelFlightNumber.setText(flightNumber);
+        jLabelAirlineTrainShipName.setText(airlineName);
+        jLabelOriginLocation.setText(departureAirport);
+        jLabelDestinationLocation.setText(arrivalAirport);
+        jLabelDepartureDate.setText(departureDate.getDate() + " / " + (departureDate.getMonth() + 1) + " / " + (departureDate.getYear()+1900));
+        jLabelSeatClass.setText(seatClass);
+        jLabelPrice.setText(price);
+        
+        this.parent = parent;
     }
 
     
@@ -240,8 +259,9 @@ public class JPanelSchedule extends javax.swing.JPanel{
     private void jButtonBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBookActionPerformed
 
             // TODO add your handling code here:
-        JFrameBookTicket frameBookTicket = new JFrameBookTicket(this);
+        JFrameBookTicket frameBookTicket = new JFrameBookTicket((JFrameScheduleList)this.parent, this.flightNumber, this.departureDate, this.departureAirport, this.arrivalAirport, this.seatClass, this.airlineName, this.price, ((JFrameScheduleList)parent).adult, ((JFrameScheduleList)parent).children, ((JFrameScheduleList)parent).infant);
         frameBookTicket.setVisible(true);
+        parent.setVisible(false);
 
         
     }//GEN-LAST:event_jButtonBookActionPerformed

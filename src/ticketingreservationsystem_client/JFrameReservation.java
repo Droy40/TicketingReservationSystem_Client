@@ -4,9 +4,7 @@
  */
 package ticketingreservationsystem_client;
 
-import java.awt.event.ActionEvent;
 import java.time.Year;
-import java.util.Date;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
@@ -115,6 +113,7 @@ public class JFrameReservation extends javax.swing.JFrame {
         jRadioButtonKeretaApi = new javax.swing.JRadioButton();
         jRadioButtonKapal = new javax.swing.JRadioButton();
         jRadioButtonSewaMobil = new javax.swing.JRadioButton();
+        jButtonHistory = new javax.swing.JButton();
 
         jComboBoxDepartureMonth.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -411,6 +410,8 @@ public class JFrameReservation extends javax.swing.JFrame {
             }
         });
 
+        jButtonHistory.setText("History");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -424,6 +425,8 @@ public class JFrameReservation extends javax.swing.JFrame {
                 .addComponent(jRadioButtonKapal)
                 .addGap(18, 18, 18)
                 .addComponent(jRadioButtonSewaMobil)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 253, Short.MAX_VALUE)
+                .addComponent(jButtonHistory)
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -434,7 +437,8 @@ public class JFrameReservation extends javax.swing.JFrame {
                     .addComponent(jRadioButtonPesawat)
                     .addComponent(jRadioButtonKeretaApi)
                     .addComponent(jRadioButtonKapal)
-                    .addComponent(jRadioButtonSewaMobil))
+                    .addComponent(jRadioButtonSewaMobil)
+                    .addComponent(jButtonHistory))
                 .addContainerGap())
         );
 
@@ -528,6 +532,7 @@ public class JFrameReservation extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButtonHistory;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
