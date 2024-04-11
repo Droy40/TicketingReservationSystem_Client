@@ -12,10 +12,10 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Dustin/Kuliah/Semester%204/Distributed%20Programming/Project_uts/TicketingReservationSystem_Client/src/ticketingreservationsystem_client/JFrameRegister.java</file>
-            <file>file:/C:/Dustin/Kuliah/Semester%204/Distributed%20Programming/Project_uts/TicketingReservationSystem_Client/src/ticketingreservationsystem_client/JFrameLogin.java</file>
-            <file>file:/C:/Dustin/Kuliah/Semester%204/Distributed%20Programming/Project_uts/TicketingReservationSystem_Client/src/ticketingreservationsystem_client/Model/SocketController.java</file>
-            <file>file:/C:/Dustin/Kuliah/Semester%204/Distributed%20Programming/Project_uts/TicketingReservationSystem_Client/src/ticketingreservationsystem_client/Model/User.java</file>
+            <file>file:/C:/Dustin/Kuliah/Semester%204/Distributed%20Programming/Project_uts/TicketingReservationSystem_Client/src/ticketingreservationsystem_client/JPanelSchedule.java</file>
+            <file>file:/C:/Dustin/Kuliah/Semester%204/Distributed%20Programming/Project_uts/TicketingReservationSystem_Client/src/ticketingreservationsystem_client/JFrameBookTicket.java</file>
+            <file>file:/C:/Dustin/Kuliah/Semester%204/Distributed%20Programming/Project_uts/TicketingReservationSystem_Client/src/ticketingreservationsystem_client/JFrameScheduleList.java</file>
+            <file>file:/C:/Dustin/Kuliah/Semester%204/Distributed%20Programming/Project_uts/TicketingReservationSystem_Client/src/ticketingreservationsystem_client/JPanelPassengerDetail.java</file>
         </group>
     </open-files>
 </project-private>
